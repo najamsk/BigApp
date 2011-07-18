@@ -1,0 +1,38 @@
+@model BigApp.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Project</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Url</div>
+    <div class="display-field">@Model.Url</div>
+
+    <div class="display-label">CreatedOn</div>
+    <div class="display-field">@String.Format("{0:g}", Model.CreatedOn)</div>
+
+    <div class="display-label">UpdatedOn</div>
+    <div class="display-field">@String.Format("{0:g}", Model.UpdatedOn)</div>
+
+    <div class="display-label">isFeatured</div>
+    <div class="display-field">@Model.isFeatured</div>
+
+    <div class="display-label">Group</div>
+    <div class="display-field">@(Model.Group == null ? "None" : Model.Group.Name)</div>
+
+    <div class="display-label">Tags</div>
+    <div class="display-field">@(Model.Tags == null ? "None" : Model.Tags.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

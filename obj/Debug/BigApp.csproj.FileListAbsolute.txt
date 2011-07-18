@@ -1,0 +1,8 @@
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\BigApp.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\BigApp.pdb
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Elmah.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\EntityFramework.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\EntityFramework.xml
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\obj\Debug\ResolveAssemblyReference.cache
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\obj\Debug\BigApp.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\obj\Debug\BigApp.pdb

@@ -1,0 +1,71 @@
+@model IEnumerable<BigApp.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Name
+        </th>
+        <th>
+            Url
+        </th>
+        <th>
+            CreatedOn
+        </th>
+        <th>
+            UpdatedOn
+        </th>
+        <th>
+            isFeatured
+        </th>
+        <th>
+            Group
+        </th>
+        <th>
+            Tags
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+			@item.Name
+        </td>
+        <td>
+			@item.Url
+        </td>
+        <td>
+			@String.Format("{0:g}", item.CreatedOn)
+        </td>
+        <td>
+			@String.Format("{0:g}", item.UpdatedOn)
+        </td>
+        <td>
+			@item.isFeatured
+        </td>
+        <td>
+			@(item.Group == null ? "None" : item.Group.Name)
+        </td>
+        <td>
+			@(item.Tags == null ? "None" : item.Tags.Count.ToString())
+        </td>
+    </tr>
+}
+
+</table>
+
+
