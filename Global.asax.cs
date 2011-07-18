@@ -31,7 +31,7 @@ namespace BigApp
 
         protected void Application_Start()
         {
-            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<BigApp.Models.BigAppContext>());
+            System.Data.Entity.Database.SetInitializer<BigApp.Models.BigAppContext>(new DAL.PortfolioInitalizer());
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
