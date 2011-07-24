@@ -6,3 +6,9 @@ E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\EntityFramework.xml
 E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\obj\Debug\ResolveAssemblyReference.cache
 E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\obj\Debug\BigApp.dll
 E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\obj\Debug\BigApp.pdb
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Mvc.Mailer.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Glimpse.Core.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Glimpse.Mvc3.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\MvcMiniProfiler.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\MvcMiniProfiler.pdb
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\MvcMiniProfiler.xml

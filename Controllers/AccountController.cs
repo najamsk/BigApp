@@ -6,15 +6,40 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using BigApp.Models;
+using System.Configuration;
+using System.Net.Mail;
+
+using Mvc.Mailer;
+using BigApp.Mailers;
+
 
 namespace BigApp.Controllers
 {
     public class AccountController : Controller
     {
-
+        private IUserMailer _userMailer = new UserMailer();
+        public IUserMailer UserMailer {
+            get
+            {
+                return _userMailer; 
+            }
+            set {
+                _userMailer = value;
+            }
+        }
         //
-        // GET: /Account/LogOn
+        // GET: /Account/Emailer
+        public ActionResult Emailer()
+        {
+            
+            
+            //UserMailer.Signup("").To = "najamsk@gmail.com";
+            UserMailer.Signup("najamsk@gmail.com").Send();
+            //BigApp.Emailer.SendMail();
+            
 
+            return View();
+        }
         public ActionResult LogOn()
         {
             return View();
@@ -79,11 +104,14 @@ namespace BigApp.Controllers
             {
                 // Attempt to register the user
                 MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                
+                Membership.CreateUser(model.UserName, model.Password, model.Email, model.SecretQuestion, model.SecretAnswer, true, null, out createStatus);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+
+                    UserMailer.Signup("najamsk@gmail.com").Send();
                     return RedirectToAction("Index", "Home");
                 }
                 else

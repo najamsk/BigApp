@@ -63,5 +63,14 @@ namespace BigApp.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "secret question")]
+        public string SecretQuestion { get; set; }
+
+        [Required]
+        [Display(Name = "secret answer")]
+        public string SecretAnswer { get; set; }
+
     }
 }

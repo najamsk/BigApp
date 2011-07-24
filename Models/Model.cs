@@ -25,6 +25,7 @@ namespace BigApp.Models
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
         public bool isFeatured { get; set; }
+        public bool isDisabled { get; set; }
         public int GroupId { get; set; }
 
         public virtual Group Group { get; set; }

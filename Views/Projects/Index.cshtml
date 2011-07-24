@@ -28,6 +28,9 @@
             isFeatured
         </th>
         <th>
+            isDisabled
+        </th>
+        <th>
             Group
         </th>
         <th>
@@ -56,6 +59,9 @@
         </td>
         <td>
 			@item.isFeatured
+        </td>
+        <td>
+			@item.isDisabled
         </td>
         <td>
 			@(item.Group == null ? "None" : item.Group.Name)
