@@ -61,3 +61,15 @@
     }), "Choose...")
     @Html.ValidationMessageFor(model => model.GroupId)
 </div>
+
+<div class="editor-label">
+Tags
+</div>
+<div class="editor-field">
+
+    @foreach (BigApp.Models.Tag tag in ViewBag.PossibleTags) { 
+        @tag.Name @:,
+
+    }
+        
+</div>

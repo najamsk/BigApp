@@ -11,16 +11,17 @@ namespace BigApp.Controllers
     {
 		private readonly IGroupRepository groupRepository;
 		private readonly IProjectRepository projectRepository;
-
+        private readonly ITagRepository tagRepository;
 		// If you are using Dependency Injection, you can delete the following constructor
-        public ProjectsController() : this(new GroupRepository(), new ProjectRepository())
+        public ProjectsController() : this(new GroupRepository(), new ProjectRepository(), new TagRepository())
         {
         }
 
-        public ProjectsController(IGroupRepository groupRepository, IProjectRepository projectRepository)
+        public ProjectsController(IGroupRepository groupRepository, IProjectRepository projectRepository, ITagRepository tagRepository)
         {
 			this.groupRepository = groupRepository;
 			this.projectRepository = projectRepository;
+            this.tagRepository = tagRepository;
         }
 
         //
@@ -45,6 +46,7 @@ namespace BigApp.Controllers
         public ActionResult Create()
         {
 			ViewBag.PossibleGroups = groupRepository.All;
+            ViewBag.PossibleTags = tagRepository.All;
             return View();
         } 
 

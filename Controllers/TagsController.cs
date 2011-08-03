@@ -39,7 +39,7 @@ namespace BigApp.Controllers
 
         //
         // GET: /Tags/Create
-        [Authorize]
+        
         public ActionResult Create()
         {
             return View();
@@ -47,7 +47,7 @@ namespace BigApp.Controllers
 
         //
         // POST: /Tags/Create
-        [Authorize]
+        
         [HttpPost]
         public ActionResult Create(Tag tag)
         {

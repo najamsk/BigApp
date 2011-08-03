@@ -87,6 +87,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Mailers\IUserMailer.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -182,6 +185,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Handler1.ashx" />
     <None Include="Model.cd" />
     <Content Include="Views\Attachments\Create.cshtml" />
     <Content Include="Views\Attachments\Edit.cshtml" />
@@ -227,7 +231,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>11516</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

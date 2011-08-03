@@ -32,5 +32,13 @@
         <footer>
         </footer>
     </div>
+    <script>
+        jQuery(function ($) {
+            $.getJSON('handler1.ashx', { id: 'najamsikander' }, function (tweets) {
+                //displayTweets(tweets);
+                console.log(tweets);
+            });
+        });
+    </script>
 </body>
 </html>
