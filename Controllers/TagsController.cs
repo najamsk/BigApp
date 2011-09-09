@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BigApp.Domain.Entities;
 using BigApp.Models;
+using BigApp.Domain.Abstract;
 
 namespace BigApp.Controllers
 {   
@@ -11,10 +13,7 @@ namespace BigApp.Controllers
     {
 		private readonly ITagRepository tagRepository;
 
-		// If you are using Dependency Injection, you can delete the following constructor
-        public TagsController() : this(new TagRepository())
-        {
-        }
+		
 
         public TagsController(ITagRepository tagRepository)
         {
@@ -23,7 +22,7 @@ namespace BigApp.Controllers
 
         //
         // GET: /Tags/
-       
+
         public ViewResult Index()
         {
             return View(tagRepository.AllIncluding(tag => tag.Projects));
@@ -31,7 +30,7 @@ namespace BigApp.Controllers
 
         //
         // GET: /Tags/Details/5
-        [Authorize]
+
         public ViewResult Details(int id)
         {
             return View(tagRepository.Find(id));
@@ -39,7 +38,7 @@ namespace BigApp.Controllers
 
         //
         // GET: /Tags/Create
-        
+
         public ActionResult Create()
         {
             return View();
@@ -47,7 +46,7 @@ namespace BigApp.Controllers
 
         //
         // POST: /Tags/Create
-        
+
         [HttpPost]
         public ActionResult Create(Tag tag)
         {
@@ -62,7 +61,7 @@ namespace BigApp.Controllers
         
         //
         // GET: /Tags/Edit/5
-       [Authorize]
+ 
         public ActionResult Edit(int id)
         {
              return View(tagRepository.Find(id));
@@ -72,7 +71,6 @@ namespace BigApp.Controllers
         // POST: /Tags/Edit/5
 
         [HttpPost]
-        [Authorize]
         public ActionResult Edit(Tag tag)
         {
             if (ModelState.IsValid) {
@@ -86,7 +84,7 @@ namespace BigApp.Controllers
 
         //
         // GET: /Tags/Delete/5
-        [Authorize]
+ 
         public ActionResult Delete(int id)
         {
             return View(tagRepository.Find(id));
@@ -94,7 +92,7 @@ namespace BigApp.Controllers
 
         //
         // POST: /Tags/Delete/5
-        [Authorize]
+
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

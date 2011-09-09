@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BigApp.Domain.Entities;
 using BigApp.Models;
+using BigApp.Domain.Abstract;
 
 namespace BigApp.Controllers
 {   
@@ -12,10 +14,8 @@ namespace BigApp.Controllers
 		private readonly IGroupRepository groupRepository;
 		private readonly IProjectRepository projectRepository;
         private readonly ITagRepository tagRepository;
-		// If you are using Dependency Injection, you can delete the following constructor
-        public ProjectsController() : this(new GroupRepository(), new ProjectRepository(), new TagRepository())
-        {
-        }
+
+		
 
         public ProjectsController(IGroupRepository groupRepository, IProjectRepository projectRepository, ITagRepository tagRepository)
         {
@@ -45,24 +45,30 @@ namespace BigApp.Controllers
 
         public ActionResult Create()
         {
-			ViewBag.PossibleGroups = groupRepository.All;
-            ViewBag.PossibleTags = tagRepository.All;
-            return View();
+			//ViewBag.PossibleGroups = groupRepository.All;
+            ProjectNewViewModel newModel = new ProjectNewViewModel { 
+                                            Project  = new Project(),
+                                            Groups = groupRepository.All,
+                                            Tags = tagRepository.All,
+                                            }; 
+            return View(newModel);
         } 
 
         //
         // POST: /Projects/Create
 
         [HttpPost]
-        public ActionResult Create(Project project)
+        public ActionResult Create(ProjectNewViewModel ProjectVM)
         {
             if (ModelState.IsValid) {
-                projectRepository.InsertOrUpdate(project);
+                projectRepository.InsertOrUpdate(ProjectVM.Project);
                 projectRepository.Save();
                 return RedirectToAction("Index");
             } else {
-				ViewBag.PossibleGroups = groupRepository.All;
-				return View();
+				//ViewBag.PossibleGroups = groupRepository.All;
+                ProjectVM.Groups = groupRepository.All;
+                ProjectVM.Tags = tagRepository.All;
+				return View(ProjectVM);
 			}
         }
         

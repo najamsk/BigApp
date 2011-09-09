@@ -12,3 +12,11 @@ E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Glimpse.Mvc3.dll
 E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\MvcMiniProfiler.dll
 E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\MvcMiniProfiler.pdb
 E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\MvcMiniProfiler.xml
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Moq.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Ninject.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Moq.pdb
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Moq.xml
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Ninject.pdb
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\Ninject.xml
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\BigApp.Domain.dll
+E:\work\aspnetLearning\MCVProjects\testapp\BigApp\BigApp\bin\BigApp.Domain.pdb

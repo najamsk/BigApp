@@ -1,4 +1,4 @@
-@model BigApp.Models.Tag
+@model BigApp.Domain.Entities.Tag
 
 @{
     ViewBag.Title = "Details";
@@ -22,7 +22,7 @@
     <div class="display-field">@(Model.Projects == null ? "None" : Model.Projects.Count.ToString())</div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TagId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 

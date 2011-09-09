@@ -1,4 +1,4 @@
-@model IEnumerable<BigApp.Models.Project>
+@model IEnumerable<BigApp.Domain.Entities.Project>
 
 @{
     ViewBag.Title = "Index";
@@ -41,9 +41,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProjectId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectId })
         </td>
         <td>
 			@item.Name

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using BigApp.Models;
+using BigApp.Domain.Entities;
+using BigApp.Domain.Concrete;
 
 namespace BigApp.DAL
 {

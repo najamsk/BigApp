@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using SportsStore.WebUI.Infrastructure;
+using BigApp.Domain.Concrete;
+using BigApp.Models;
+using BigApp.Binders;
 
 namespace BigApp
 {
@@ -31,11 +35,13 @@ namespace BigApp
 
         protected void Application_Start()
         {
-            System.Data.Entity.Database.SetInitializer<BigApp.Models.BigAppContext>(new DAL.PortfolioInitalizer());
+            System.Data.Entity.Database.SetInitializer<BigAppContext>(new DAL.PortfolioInitalizer());
             AreaRegistration.RegisterAllAreas();
 
+            ModelBinders.Binders.Add(typeof(ProjectNewViewModel), new NewProjectModelBinder());
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            DependencyResolver.SetResolver(new NinjectDependencyResolver());
             
         }
     }

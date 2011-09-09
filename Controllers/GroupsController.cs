@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BigApp.Domain.Entities;
 using BigApp.Models;
+using BigApp.Domain.Abstract;
 
 namespace BigApp.Controllers
 {   
@@ -11,10 +13,7 @@ namespace BigApp.Controllers
     {
 		private readonly IGroupRepository groupRepository;
 
-		// If you are using Dependency Injection, you can delete the following constructor
-        public GroupsController() : this(new GroupRepository())
-        {
-        }
+		
 
         public GroupsController(IGroupRepository groupRepository)
         {

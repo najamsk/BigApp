@@ -1,75 +1,68 @@
-@model BigApp.Models.Project
+@model BigApp.Models.ProjectNewViewModel
 
 @* This partial view defines form fields that will appear when creating and editing entities *@
 
 <div class="editor-label">
-    @Html.LabelFor(model => model.Name)
+    @Html.LabelFor(model => model.Project.Name)
 </div>
 <div class="editor-field">
-    @Html.EditorFor(model => model.Name)
-    @Html.ValidationMessageFor(model => model.Name)
+    @Html.EditorFor(model => model.Project.Name)
+    @Html.ValidationMessageFor(model => model.Project.Name)
 </div>
 
 <div class="editor-label">
-    @Html.LabelFor(model => model.Url)
+    @Html.LabelFor(model => model.Project.Url)
 </div>
 <div class="editor-field">
-    @Html.EditorFor(model => model.Url)
-    @Html.ValidationMessageFor(model => model.Url)
+    @Html.EditorFor(model => model.Project.Url)
+    @Html.ValidationMessageFor(model => model.Project.Url)
 </div>
 
 <div class="editor-label">
-    @Html.LabelFor(model => model.CreatedOn)
+    @Html.LabelFor(model => model.Project.CreatedOn)
 </div>
 <div class="editor-field">
-    @Html.EditorFor(model => model.CreatedOn)
-    @Html.ValidationMessageFor(model => model.CreatedOn)
+    @Html.EditorFor(model => model.Project.CreatedOn)
+    @Html.ValidationMessageFor(model => model.Project.CreatedOn)
 </div>
 
 <div class="editor-label">
-    @Html.LabelFor(model => model.UpdatedOn)
+    @Html.LabelFor(model => model.Project.UpdatedOn)
 </div>
 <div class="editor-field">
-    @Html.EditorFor(model => model.UpdatedOn)
-    @Html.ValidationMessageFor(model => model.UpdatedOn)
+    @Html.EditorFor(model => model.Project.UpdatedOn)
+    @Html.ValidationMessageFor(model => model.Project.UpdatedOn)
 </div>
 
 <div class="editor-label">
-    @Html.LabelFor(model => model.isFeatured)
+    @Html.LabelFor(model => model.Project.isFeatured)
 </div>
 <div class="editor-field">
-    @Html.EditorFor(model => model.isFeatured)
-    @Html.ValidationMessageFor(model => model.isFeatured)
+    @Html.EditorFor(model => model.Project.isFeatured)
+    @Html.ValidationMessageFor(model => model.Project.isFeatured)
 </div>
 
 <div class="editor-label">
-    @Html.LabelFor(model => model.isDisabled)
+    @Html.LabelFor(model => model.Project.isDisabled)
 </div>
 <div class="editor-field">
-    @Html.EditorFor(model => model.isDisabled)
-    @Html.ValidationMessageFor(model => model.isDisabled)
+    @Html.EditorFor(model => model.Project.isDisabled)
+    @Html.ValidationMessageFor(model => model.Project.isDisabled)
 </div>
 
 <div class="editor-label">
     Group
 </div>
 <div class="editor-field">
-    @Html.DropDownListFor(model => model.GroupId, ((IEnumerable<BigApp.Models.Group>)ViewBag.PossibleGroups).Select(option => new SelectListItem {
+    @Html.DropDownListFor(model => model.Project.GroupId, ((IEnumerable<BigApp.Domain.Entities.Group>)Model.Groups).Select(option => new SelectListItem {
         Text = (option == null ? "None" : option.Name), 
-        Value = option.Id.ToString(),
-        Selected = (Model != null) && (option.Id == Model.GroupId)
+        Value = option.GroupId.ToString(),
+        Selected = (Model != null) && (option.GroupId == Model.Project.GroupId)
     }), "Choose...")
-    @Html.ValidationMessageFor(model => model.GroupId)
+    @Html.ValidationMessageFor(model => model.Project.GroupId)
 </div>
 
-<div class="editor-label">
-Tags
-</div>
-<div class="editor-field">
 
-    @foreach (BigApp.Models.Tag tag in ViewBag.PossibleTags) { 
-        @tag.Name @:,
-
-    }
-        
-</div>
+@Html.ListBoxFor(model=>model.Tags, (Model.Tags).Select(o=>new SelectListItem{ 
+    Text = (o == null ? "None"  : o.Name),
+    Value = o.TagId.ToString()}))
