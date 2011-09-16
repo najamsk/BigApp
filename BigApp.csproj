@@ -60,6 +60,12 @@
       <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -84,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Big.svc.cs">
+      <DependentUpon>Big.svc</DependentUpon>
+    </Compile>
     <Compile Include="Binders\NewProjectModelBinder.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
@@ -104,12 +113,19 @@
     <Compile Include="Mailers\UserMailer.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\DAL\PortfolioInitalizer.cs" />
+    <Compile Include="Models\MyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProjectNewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\JSONPSupportBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\glimpse.mvc3.readme.txt" />
     <Content Include="App_Readme\glimpse.readme.txt" />
+    <Content Include="Big.svc" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -218,6 +234,10 @@
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\_CreateOrEdit.cshtml" />
+    <EntityDeploy Include="Models\MyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BigApp.Domain\BigApp.Domain.csproj">

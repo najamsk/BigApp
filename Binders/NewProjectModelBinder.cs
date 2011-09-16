@@ -8,9 +8,9 @@ using BigApp.Domain.Entities;
 
 namespace BigApp.Binders
 {
-    public class NewProjectModelBinder : IModelBinder
+    public class NewProjectModelBinder : DefaultModelBinder
     {
-        public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             ProjectNewViewModel model = (ProjectNewViewModel)bindingContext.Model ??
                 (ProjectNewViewModel)DependencyResolver.Current.GetService(typeof(ProjectNewViewModel));
